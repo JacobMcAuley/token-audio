@@ -1,0 +1,13 @@
+{
+    "name": "token-audio",
+    "title": "Token Audio",
+    "description": "Allows you to attach ambient sounds to tokens",
+    "version": "1.0.0",
+    "author": "Jacob McAuley",
+    "scripts": ["./src/main.js"],
+    "url": "https://github.com/JacobMcAuley/token-audio",
+    "manifest": "null",
+    "download": "null",
+    "minimumCoreversion": "0.5.7",
+    "compatiableCoreVersion": "0.5.7"
+}
