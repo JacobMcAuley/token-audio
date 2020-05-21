@@ -6,8 +6,8 @@
     "author": "Jacob McAuley",
     "scripts": ["./src/main.js"],
     "url": "https://github.com/JacobMcAuley/token-audio",
-    "manifest": "null",
-    "download": "null",
+    "manifest": "https://raw.githubusercontent.com/JacobMcAuley/token-audio/master/module.json",
+    "download": "https://github.com/JacobMcAuley/token-audio/archive/master.zip",
     "minimumCoreversion": "0.5.7",
     "compatiableCoreVersion": "0.5.7"
 }

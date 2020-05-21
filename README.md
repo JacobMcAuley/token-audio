@@ -19,3 +19,14 @@ For the time there are some minor restrictions/inconviences
 
 1. Create an ambient sound via the HUD on the left hand side.
 2. Drag the ambient sound to the center of a token and watch as the ambient sound follows the token.
+
+### Module Developers
+
+If you'd like to call the functions within, the exposed API below may be useful
+
+```
+async TP.handleTokenAudio.placeAudio(tokenId, ambientId)
+
+async TP.handleTokenAudio.releaseAudio(flagInfo : entity.data.flags)
+// I.E pass the data.flags of the ambientsource or the token you're trying to release.
+```
