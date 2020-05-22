@@ -1,4 +1,4 @@
-const TP = this.TP || {};
+const TokenAudio = this.TokenAudio || {};
 
 class TokenAudioInitializer {
     constructor() {}
@@ -8,36 +8,36 @@ class TokenAudioInitializer {
         TokenAudioInitializer.hooksOnCreateAmbientSound();
         TokenAudioInitializer.hooksOnUpdateToken();
         TokenAudioInitializer.hooksOnDelete();
-        TP.handleTokenAudio = new HandleTokenAudio();
+        TokenAudio.handleTokenAudio = new HandleTokenAudio();
     }
 
     static hooksOnUpdateToken() {
         Hooks.on("updateToken", (scene, data, update, flags, sceneId) => {
             if (update.x || update.y) {
-                TP.handleTokenAudio.moveAudio(data.x, data.y, data._id);
+                TokenAudio.handleTokenAudio.moveAudio(data.x, data.y, data._id);
             }
         });
     }
 
     static hooksOnDelete() {
         Hooks.on("deleteToken", (scene, data, flags, sceneId) => {
-            TP.handleTokenAudio.releaseAudio(data.flags);
+            TokenAudio.handleTokenAudio.releaseAudio(data.flags);
         });
 
         Hooks.on("deleteAmbientSound", (scene, data, flags, sceneId) => {
-            TP.handleTokenAudio.releaseAudio(data.flags);
+            TokenAudio.handleTokenAudio.releaseAudio(data.flags);
         });
     }
 
     static hooksOnUpdateAmbientSound() {
         Hooks.on("updateAmbientSound", (scene, data, update, flags, sceneId) => {
-            TP.handleTokenAudio.inTokenPosition(data.x, data.y, data._id);
+            TokenAudio.handleTokenAudio.inTokenPosition(data.x, data.y, data._id);
         });
     }
 
     static hooksOnCreateAmbientSound() {
         Hooks.on("createAmbientSound", (scene, data, flags, sceneId) => {
-            TP.handleTokenAudio.inTokenPosition(data.x, data.y, data._id);
+            TokenAudio.handleTokenAudio.inTokenPosition(data.x, data.y, data._id);
         });
     }
 }
@@ -106,4 +106,6 @@ class HandleTokenAudio {
     }
 }
 
-TokenAudioInitializer.initialize();
+Hooks.on("ready", () => {
+    if (game.user.isGM) TokenAudioInitializer.initialize();
+});
